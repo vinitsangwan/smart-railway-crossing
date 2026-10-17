@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   WARM NEUTRAL OBSIDIAN & CREAM ZINC DESIGN SYSTEM
+   Human-designed, warm architectural tones, zero AI-neon styling
+   ========================================================================== */
+
+/* Light Theme: Warm Cream Zinc & Architectural Stone */
+:root, [data-theme="light"] {
+  --color-bg-darker: 247 246 242; /* #f7f6f2 - warm cream foundation */
+  --color-bg-dark: 252 251 248;   /* #fcfbf8 - warm ivory canvas */
+  --color-bg-card: 255 255 255;   /* #ffffff - crisp warm card */
+  --color-bg-panel: 241 238 231;  /* #f1eee7 - tactile cream zinc panel */
+  --color-border: 226 221 211;    /* #e2ddd3 - warm muted zinc border */
+  --color-text-main: 28 25 23;    /* #1c1917 - warm obsidian charcoal text */
+  --color-slate: 87 83 78;        /* #57534e - warm stone secondary text */
+  --color-muted: 120 113 108;     /* #78716c - warm stone muted text */
+}
+
+/* Dark Theme: Neutral Obsidian Charcoal & Mineral Undertones */
+.dark, [data-theme="dark"] {
+  --color-bg-darker: 17 17 19;    /* #111113 - deep warm obsidian black */
+  --color-bg-dark: 22 22 26;      /* #16161a - obsidian surface */
+  --color-bg-card: 28 28 33;      /* #1c1c21 - warm obsidian card */
+  --color-bg-panel: 36 36 43;     /* #24242b - elevated obsidian panel */
+  --color-border: 49 49 58;       /* #31313a - refined warm obsidian border */
+  --color-text-main: 244 243 240; /* #f4f3f0 - warm cream white text */
+  --color-slate: 168 165 158;     /* #a8a59e - warm cream zinc secondary text */
+  --color-muted: 138 135 128;     /* #8a8780 - warm muted stone */
+}
+
+@layer base {
+  body {
+    background-color: rgb(var(--color-bg-darker));
+    color: rgb(var(--color-text-main));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* High-contrast base text */
+[data-theme="light"] body {
+  color: #1c1917;
+}
+.dark body, [data-theme="dark"] body {
+  color: #f4f3f0;
+}
+
+/* Ensure buttons with solid colored backgrounds always keep clear white text */
+button.bg-emerald-600,
+button.bg-emerald-700,
+button.bg-red-600,
+button.bg-red-700,
+button.bg-rose-600,
+button.bg-amber-600,
+button.bg-amber-700,
+button.bg-black,
+button.bg-zinc-900,
+button.bg-stone-900,
+.btn-white-text {
+  color: #ffffff !important;
+}
+
+/* Human-designed warm scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-bg-darker));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-muted));
+}

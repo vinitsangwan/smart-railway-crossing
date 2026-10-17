@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Smart Railway DELD Team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 120, "left": 180, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_red1", "top": 40, "left": 460, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led_red2", "top": 80, "left": 460, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led_green", "top": 120, "left": 460, "attrs": { "color": "green" } },
+    { "type": "wokwi-resistor", "id": "r_red1", "top": 50, "left": 520, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r_red2", "top": 90, "left": 520, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r_green", "top": 130, "left": 520, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 180, "left": 470, "attrs": { "hasLocalSound": "true" } },
+    { "type": "wokwi-servo", "id": "servo_barrier", "top": 280, "left": 460, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn_sensorA", "top": 40, "left": -20, "attrs": { "color": "yellow", "label": "Sensor A (Approach)" } },
+    { "type": "wokwi-pushbutton", "id": "btn_sensorB", "top": 110, "left": -20, "attrs": { "color": "orange", "label": "Sensor B (Occupied)" } },
+    { "type": "wokwi-pushbutton", "id": "btn_sensorC", "top": 180, "left": -20, "attrs": { "color": "green", "label": "Sensor C (Clear)" } },
+    { "type": "wokwi-pushbutton", "id": "btn_emergencyD", "top": 250, "left": -20, "attrs": { "color": "red", "label": "Emergency D" } }
+  ],
+  "connections": [
+    [ "uno:GND.1", "led_red1:C", "black", [ "v0" ] ],
+    [ "uno:GND.1", "led_red2:C", "black", [ "v0" ] ],
+    [ "uno:GND.1", "led_green:C", "black", [ "v0" ] ],
+    [ "uno:GND.1", "buzzer:1", "black", [ "v0" ] ],
+    [ "uno:GND.2", "servo_barrier:GND", "black", [ "v0" ] ],
+    [ "uno:5V", "servo_barrier:V+", "red", [ "v0" ] ],
+
+    [ "uno:6", "r_red1:1", "red", [ "v0" ] ],
+    [ "r_red1:2", "led_red1:A", "red", [ "v0" ] ],
+
+    [ "uno:7", "r_red2:1", "red", [ "v0" ] ],
+    [ "r_red2:2", "led_red2:A", "red", [ "v0" ] ],
+
+    [ "uno:8", "r_green:1", "green", [ "v0" ] ],
+    [ "r_green:2", "led_green:A", "green", [ "v0" ] ],
+
+    [ "uno:9", "buzzer:2", "purple", [ "v0" ] ],
+    [ "uno:10", "servo_barrier:PWM", "orange", [ "v0" ] ],
+
+    [ "btn_sensorA:2.1", "uno:GND.3", "black", [ "v0" ] ],
+    [ "btn_sensorA:1.1", "uno:2", "yellow", [ "v0" ] ],
+
+    [ "btn_sensorB:2.1", "uno:GND.3", "black", [ "v0" ] ],
+    [ "btn_sensorB:1.1", "uno:3", "orange", [ "v0" ] ],
+
+    [ "btn_sensorC:2.1", "uno:GND.3", "black", [ "v0" ] ],
+    [ "btn_sensorC:1.1", "uno:4", "green", [ "v0" ] ],
+
+    [ "btn_emergencyD:2.1", "uno:GND.3", "black", [ "v0" ] ],
+    [ "btn_emergencyD:1.1", "uno:5", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

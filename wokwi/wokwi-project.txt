@@ -1,0 +1,44 @@
+================================================================================
+WOKWI & TINKERCAD CIRCUITS REPRODUCTION INSTRUCTIONS
+Smart Railway Crossing Warning System Using Digital Logic and Arduino Simulation
+================================================================================
+
+A. RUNNING ON WOKWI (Recommended 1-Click Import):
+1. Visit https://wokwi.com
+2. Click "Start New Project" -> Select "Arduino Uno".
+3. In the code tab (sketch.ino), copy and paste the contents of:
+   `arduino/railway_crossing.ino`
+4. In the diagram tab (diagram.json), replace the contents with:
+   `wokwi/diagram.json`
+5. Press the green "Play" (Simulation Start) button.
+6. Test using the push buttons:
+   - Click Sensor A (Approach): Red LEDs flash alternately, buzzer sounds, barrier begins closing.
+   - Click Sensor B (Occupancy): Barrier locks closed (0°).
+   - Click Sensor C (Clear): Barrier unlocks and smoothly opens back to 90°.
+   - Click Emergency D: Immediate override to closed state regardless of current step.
+
+B. RUNNING ON AUTODESK TINKERCAD CIRCUITS:
+1. Open https://www.tinkercad.com and navigate to "Circuits" -> "Create new Circuit".
+2. Drag the following components onto the workplane:
+   - 1x Arduino Uno R3
+   - 1x Half Breadboard
+   - 4x Pushbutton switches
+   - 2x Red LEDs (5mm)
+   - 1x Green LED (5mm)
+   - 3x 220 Ohm Resistors (for LEDs)
+   - 1x Piezo Buzzer
+   - 1x Micro Servo 9g (SG90)
+3. Wire according to the Pin Mapping:
+   - Arduino D2 -> Pushbutton A Terminal 1a (Terminal 2a -> GND)
+   - Arduino D3 -> Pushbutton B Terminal 1a (Terminal 2a -> GND)
+   - Arduino D4 -> Pushbutton C Terminal 1a (Terminal 2a -> GND)
+   - Arduino D5 -> Pushbutton D Terminal 1a (Terminal 2a -> GND)
+   - Arduino D6 -> 220Ω Resistor -> Red LED 1 Anode (Cathode -> GND)
+   - Arduino D7 -> 220Ω Resistor -> Red LED 2 Anode (Cathode -> GND)
+   - Arduino D8 -> 220Ω Resistor -> Green LED Anode (Cathode -> GND)
+   - Arduino D9 -> Buzzer Positive (Negative -> GND)
+   - Arduino D10 -> Servo Signal (Orange)
+   - Arduino 5V -> Servo Power (Red)
+   - Arduino GND -> Servo Ground (Brown/Black)
+4. Click "Code" -> Change dropdown to "Text" -> Paste `arduino/railway_crossing.ino`.
+5. Click "Start Simulation".
